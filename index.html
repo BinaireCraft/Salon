@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blessed Cake Pâtisserie | Gâteaux personnalisés à Lubumbashi</title>
+  <meta name="description" content="Blessed Cake Pâtisserie à Lubumbashi. Gâteaux d'anniversaire, mariage, cupcakes et créations personnalisées sur commande. Réservation 2 à 3 jours à l'avance via WhatsApp." />
+  <meta name="keywords" content="Blessed Cake, pâtisserie Lubumbashi, gâteau anniversaire Lubumbashi, gâteau mariage Lubumbashi, cupcakes Lubumbashi, gâteau personnalisé" />
+  <meta name="author" content="Blessed Cake Pâtisserie" />
+  <meta name="theme-color" content="#C9A24A" />
+  <meta property="og:title" content="Blessed Cake Pâtisserie | Lubumbashi" />
+  <meta property="og:description" content="Commandez votre gâteau personnalisé pour anniversaire, mariage ou événement à Lubumbashi." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://picsum.photos/seed/blessedcakeshare/1200/630" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTgiIGZpbGw9IiNmZmY4ZWYiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIyMyIgZmlsbD0iI2M5YTI0YSIgb3BhY2l0eT0iLjE4Ii8+PHBhdGggZD0iTTE4IDQ0aDI4bC0yLTExYy0uNy0zLjgtMy44LTYuNS03LjYtNi41aC04LjhjLTMuOCAwLTYuOSAyLjctNy42IDYuNWwtMiAxMXoiIGZpbGw9IiNjOWEyNGEiLz48cGF0aCBkPSJNMjEgMzNoMjJ2N2EyIDIgMCAwIDEtMiAySDIzYTIgMiAwIDAgMS0yLTJ2LTd6IiBmaWxsPSIjZmZmOGVmIi8+PGNpcmNsZSBjeD0iMzIiIGN5PSIyMiIgcj0iNSIgZmlsbD0iI2M5YTI0YSIvPjxwYXRoIGQ9Ik0zMiAxMnY2bTAgMGgzLjJNMzIgMThoLTMuMiIgc3Ryb2tlPSIjYzlhMjRhIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --cream: #fff8ef;
+      --cream-2: #f8efe2;
+      --white: #ffffff;
+      --ink: #241a12;
+      --muted: #746355;
+      --soft: #a98e78;
+      --gold: #c9a24a;
+      --gold-dark: #9e7b25;
+      --gold-soft: #f4e3b5;
+      --pink: #f8d8df;
+      --pink-deep: #b86b7b;
+      --brown: #5a3b27;
+      --green: #1f7a4a;
+      --red: #b84f4f;
+      --line: rgba(36, 26, 18, .1);
+      --shadow: 0 22px 70px rgba(90, 59, 39, .14);
+      --shadow-small: 0 12px 34px rgba(90, 59, 39, .1);
+      --radius: 28px;
+      --radius-small: 16px;
+      --transition: .28s ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top left, #fff3df 0, var(--cream) 34%, #fff 100%);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    body.menu-open { overflow: hidden; }
+    img { width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+
+    .container { width: min(1160px, calc(100% - 36px)); margin: 0 auto; }
+    .page { display: none; min-height: calc(100vh - 84px); padding-top: 84px; animation: pageIn .45s ease both; }
+    .page.active { display: block; }
+    @keyframes pageIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    .topbar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 248, 239, .82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: max-content;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+    }
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, var(--gold), #efd489);
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(201, 162, 74, .28);
+    }
+    .brand strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      line-height: 1;
+      letter-spacing: .01em;
+    }
+    .brand span { display: block; font-size: .72rem; color: var(--gold-dark); font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
+    .nav-link {
+      border: 0;
+      background: transparent;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: .88rem;
+      transition: var(--transition);
+    }
+    .nav-link:hover, .nav-link.active { background: var(--white); color: var(--gold-dark); box-shadow: var(--shadow-small); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--ink);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn {
+      border: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .btn svg, .btn i { width: 18px; height: 18px; }
+    .btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #fff; box-shadow: 0 14px 28px rgba(201, 162, 74, .24); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(201, 162, 74, .3); }
+    .btn-light { background: var(--white); color: var(--gold-dark); border: 1px solid rgba(201, 162, 74, .25); }
+    .btn-light:hover { transform: translateY(-2px); box-shadow: var(--shadow-small); }
+    .btn-dark { background: var(--ink); color: #fff; }
+    .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(36, 26, 18, .18); }
+    .btn-ghost { background: transparent; color: var(--gold-dark); border: 1px solid rgba(201, 162, 74, .35); }
+    .btn-ghost:hover { background: var(--gold-soft); }
+
+    .mobile-panel {
+      display: none;
+      position: fixed;
+      inset: 84px 18px auto 18px;
+      z-index: 99;
+      background: rgba(255, 255, 255, .94);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+      padding: 14px;
+    }
+    .mobile-panel.open { display: block; animation: pageIn .25s ease both; }
+    .mobile-panel .nav-link { width: 100%; justify-content: flex-start; text-align: left; display: flex; margin-bottom: 4px; }
+    .mobile-panel .btn { width: 100%; margin-top: 8px; }
+
+    .section { padding: 80px 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(201, 162, 74, .12);
+      color: var(--gold-dark);
+      font-size: .76rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .eyebrow i { width: 15px; height: 15px; }
+    .title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.15rem, 5vw, 4.8rem);
+      line-height: .96;
+      letter-spacing: -.04em;
+      color: var(--ink);
+    }
+    .title span { color: var(--gold-dark); }
+    .subtitle { color: var(--muted); font-size: clamp(.98rem, 2vw, 1.12rem); max-width: 620px; margin-top: 18px; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 34px; }
+    .section-head .title { font-size: clamp(2rem, 4vw, 3.25rem); }
+
+    .hero { min-height: calc(100vh - 84px); display: grid; align-items: center; padding: 46px 0 80px; position: relative; overflow: hidden; }
+    .hero:before {
+      content: "";
+      position: absolute;
+      width: 620px;
+      height: 620px;
+      border-radius: 50%;
+      right: -250px;
+      top: -220px;
+      background: radial-gradient(circle, rgba(248, 216, 223, .85), rgba(255, 255, 255, 0) 68%);
+      pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr .92fr; align-items: center; gap: 54px; position: relative; z-index: 1; }
+    .hero-copy { max-width: 630px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .trust-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 34px; max-width: 560px; }
+    .trust-card { background: rgba(255, 255, 255, .78); border: 1px solid var(--line); border-radius: 22px; padding: 16px; box-shadow: var(--shadow-small); }
+    .trust-card strong { display: block; font-size: 1.12rem; }
+    .trust-card span { display: block; color: var(--muted); font-size: .78rem; font-weight: 700; margin-top: 2px; }
+
+    .hero-visual { position: relative; min-height: 560px; }
+    .hero-photo-main {
+      position: absolute;
+      inset: 0 48px 48px 0;
+      border-radius: 44px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 10px solid rgba(255, 255, 255, .86);
+      transform: rotate(-1.5deg);
+    }
+    .hero-photo-main img { height: 100%; object-fit: cover; }
+    .hero-photo-small {
+      position: absolute;
+      width: 235px;
+      right: 0;
+      bottom: 0;
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 8px solid var(--white);
+    }
+    .hero-photo-small img { height: 260px; object-fit: cover; }
+    .floating-card {
+      position: absolute;
+      left: -8px;
+      bottom: 84px;
+      background: rgba(255, 255, 255, .92);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-small);
+      border-radius: 24px;
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      max-width: 265px;
+      animation: float 4s ease-in-out infinite;
+    }
+    .floating-card i { color: var(--gold-dark); width: 26px; height: 26px; flex: 0 0 auto; }
+    .floating-card strong { display: block; font-size: .9rem; }
+    .floating-card span { display: block; color: var(--muted); font-size: .78rem; margin-top: 2px; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    .quick-order {
+      margin-top: -46px;
+      position: relative;
+      z-index: 5;
+    }
+    .quick-card {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr auto;
+      gap: 14px;
+      padding: 18px;
+      background: rgba(255, 255, 255, .92);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 30px;
+      align-items: end;
+    }
+    .field label { display: block; color: var(--muted); font-size: .78rem; font-weight: 900; margin: 0 0 7px 8px; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid rgba(36, 26, 18, .12);
+      border-radius: 16px;
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+      padding: 0 14px;
+      transition: var(--transition);
+    }
+    .field textarea { padding: 14px; min-height: 112px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: rgba(201, 162, 74, .75); box-shadow: 0 0 0 4px rgba(201, 162, 74, .14); }
+
+    .benefits { background: var(--white); }
+    .benefit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .benefit-card { border: 1px solid var(--line); border-radius: 26px; padding: 24px; background: linear-gradient(180deg, #fff, #fffaf2); box-shadow: var(--shadow-small); transition: var(--transition); }
+    .benefit-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .icon-box { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 18px; background: rgba(201, 162, 74, .13); color: var(--gold-dark); margin-bottom: 18px; }
+    .icon-box i { width: 24px; height: 24px; }
+    .benefit-card h3 { font-size: 1rem; margin-bottom: 8px; }
+    .benefit-card p { color: var(--muted); font-size: .9rem; }
+
+    .showcase { background: linear-gradient(180deg, #fff, var(--cream)); }
+    .showcase-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 30px; align-items: stretch; }
+    .showcase-card { background: var(--ink); color: #fff; border-radius: 34px; padding: 32px; overflow: hidden; position: relative; min-height: 560px; display: flex; flex-direction: column; justify-content: space-between; }
+    .showcase-card:after { content: ""; position: absolute; inset: auto -80px -140px auto; width: 300px; height: 300px; border-radius: 50%; background: rgba(201, 162, 74, .28); }
+    .showcase-card .title { color: #fff; font-size: clamp(2.2rem, 4vw, 3.55rem); position: relative; z-index: 1; }
+    .showcase-card p { color: rgba(255, 255, 255, .68); margin-top: 18px; max-width: 420px; position: relative; z-index: 1; }
+    .steps { display: grid; gap: 14px; margin-top: 26px; position: relative; z-index: 1; }
+    .step { display: grid; grid-template-columns: 44px 1fr; gap: 13px; align-items: start; }
+    .step-number { width: 44px; height: 44px; border-radius: 16px; display: grid; place-items: center; background: rgba(255, 255, 255, .1); color: var(--gold-soft); font-weight: 900; }
+    .step strong { display: block; }
+    .step span { display: block; color: rgba(255, 255, 255, .58); font-size: .88rem; margin-top: 2px; }
+    .showcase-photo { border-radius: 34px; overflow: hidden; box-shadow: var(--shadow); min-height: 560px; }
+    .showcase-photo img { height: 100%; object-fit: cover; }
+
+    .catalog-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 18px; margin-bottom: 26px; flex-wrap: wrap; }
+    .filter-group { display: flex; gap: 10px; flex-wrap: wrap; }
+    .chip {
+      border: 1px solid rgba(201, 162, 74, .28);
+      background: rgba(255, 255, 255, .8);
+      color: var(--gold-dark);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 900;
+      font-size: .86rem;
+      transition: var(--transition);
+    }
+    .chip.active, .chip:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
+    .search-box { position: relative; min-width: min(100%, 300px); }
+    .search-box i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--soft); }
+    .search-box input { padding-left: 44px; }
+    .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .product-card { background: var(--white); border: 1px solid var(--line); border-radius: 30px; overflow: hidden; box-shadow: var(--shadow-small); transition: var(--transition); }
+    .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .product-image { position: relative; height: 280px; overflow: hidden; }
+    .product-image img { height: 100%; object-fit: cover; transition: .5s ease; }
+    .product-card:hover .product-image img { transform: scale(1.05); }
+    .product-badge { position: absolute; left: 14px; top: 14px; padding: 8px 11px; border-radius: 999px; background: rgba(255, 255, 255, .9); color: var(--gold-dark); font-size: .74rem; font-weight: 900; box-shadow: var(--shadow-small); }
+    .product-content { padding: 20px; }
+    .product-content h3 { font-family: "Cormorant Garamond", serif; font-size: 1.65rem; line-height: 1; margin-bottom: 8px; }
+    .product-content p { color: var(--muted); font-size: .9rem; min-height: 56px; }
+    .product-meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+    .meta-pill { display: inline-flex; gap: 6px; align-items: center; padding: 7px 10px; background: var(--cream); border-radius: 999px; color: var(--muted); font-size: .75rem; font-weight: 800; }
+    .meta-pill i { width: 14px; height: 14px; color: var(--gold-dark); }
+    .product-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .empty-state { display: none; background: #fff; border: 1px dashed rgba(201, 162, 74, .55); border-radius: 24px; padding: 28px; text-align: center; color: var(--muted); }
+
+    .detail-grid { display: grid; grid-template-columns: 1fr .9fr; gap: 42px; align-items: start; }
+    .detail-gallery { background: var(--white); border: 1px solid var(--line); border-radius: 34px; padding: 16px; box-shadow: var(--shadow-small); }
+    .main-detail-image { height: 540px; border-radius: 24px; overflow: hidden; background: var(--cream-2); }
+    .main-detail-image img { height: 100%; object-fit: cover; }
+    .thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 12px; }
+    .thumb { height: 94px; border: 2px solid transparent; border-radius: 18px; overflow: hidden; background: transparent; padding: 0; }
+    .thumb.active { border-color: var(--gold); }
+    .thumb img { height: 100%; object-fit: cover; }
+    .detail-info { background: rgba(255, 255, 255, .84); border: 1px solid var(--line); border-radius: 34px; padding: 30px; box-shadow: var(--shadow-small); position: sticky; top: 108px; }
+    .detail-info h1 { font-family: "Cormorant Garamond", serif; font-size: clamp(2.4rem, 4vw, 3.6rem); line-height: .95; letter-spacing: -.03em; margin-bottom: 14px; }
+    .detail-info p { color: var(--muted); margin-bottom: 22px; }
+    .detail-list { display: grid; gap: 12px; margin: 22px 0; }
+    .detail-list li { list-style: none; display: flex; align-items: flex-start; gap: 12px; color: var(--muted); }
+    .detail-list i { width: 20px; height: 20px; color: var(--gold-dark); flex: 0 0 auto; margin-top: 2px; }
+    .detail-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+
+    .order-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 30px; align-items: start; }
+    .order-card, .summary-card, .contact-card { background: rgba(255, 255, 255, .9); border: 1px solid var(--line); box-shadow: var(--shadow-small); border-radius: 34px; padding: 26px; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .form-grid .full { grid-column: 1 / -1; }
+    .summary-card { position: sticky; top: 108px; }
+    .summary-card h3, .order-card h2, .contact-card h2 { font-family: "Cormorant Garamond", serif; font-size: 2rem; line-height: 1; margin-bottom: 12px; }
+    .estimate-box {
+      margin: 18px 0;
+      border-radius: 24px;
+      padding: 18px;
+      background: linear-gradient(135deg, rgba(201, 162, 74, .13), rgba(248, 216, 223, .42));
+      border: 1px solid rgba(201, 162, 74, .2);
+    }
+    .estimate-box span { color: var(--muted); font-size: .82rem; font-weight: 900; display: block; }
+    .estimate-box strong { display: block; font-size: 2.3rem; letter-spacing: -.05em; margin-top: 4px; }
+    .availability { display: flex; align-items: flex-start; gap: 12px; padding: 14px; border-radius: 20px; background: var(--cream); border: 1px solid var(--line); color: var(--muted); margin: 12px 0; }
+    .availability i { width: 20px; height: 20px; color: var(--gold-dark); flex: 0 0 auto; margin-top: 2px; }
+    .availability.ok { background: rgba(31, 122, 74, .08); border-color: rgba(31, 122, 74, .18); }
+    .availability.ok i { color: var(--green); }
+    .availability.warn { background: rgba(201, 162, 74, .12); border-color: rgba(201, 162, 74, .22); }
+    .availability.bad { background: rgba(184, 79, 79, .08); border-color: rgba(184, 79, 79, .2); }
+    .availability.bad i { color: var(--red); }
+    .summary-line { display: flex; justify-content: space-between; gap: 18px; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+    .summary-line strong { color: var(--ink); text-align: right; }
+    .note { color: var(--muted); font-size: .82rem; margin-top: 12px; }
+    .generated-message { margin-top: 18px; padding: 16px; background: #fff; border: 1px solid var(--line); border-radius: 20px; color: var(--muted); font-size: .86rem; max-height: 220px; overflow: auto; white-space: pre-wrap; }
+
+    .contact-page-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 30px; align-items: stretch; }
+    .contact-details { display: grid; gap: 14px; margin-top: 24px; }
+    .contact-row { display: flex; gap: 14px; align-items: flex-start; padding: 16px; background: var(--cream); border-radius: 22px; border: 1px solid var(--line); }
+    .contact-row i { width: 22px; height: 22px; color: var(--gold-dark); flex: 0 0 auto; margin-top: 2px; }
+    .contact-row strong { display: block; }
+    .contact-row span, .contact-row a { color: var(--muted); font-size: .92rem; }
+    .contact-visual { border-radius: 34px; overflow: hidden; box-shadow: var(--shadow); min-height: 500px; position: relative; }
+    .contact-visual img { height: 100%; object-fit: cover; }
+    .contact-visual-card { position: absolute; left: 22px; right: 22px; bottom: 22px; padding: 20px; border-radius: 24px; background: rgba(255, 255, 255, .88); backdrop-filter: blur(14px); box-shadow: var(--shadow-small); }
+    .contact-visual-card strong { display: block; font-size: 1.1rem; margin-bottom: 6px; }
+    .contact-visual-card span { color: var(--muted); display: block; }
+
+    .bottom-cta { padding: 72px 0; background: linear-gradient(135deg, var(--ink), #3c2b1f); color: #fff; overflow: hidden; }
+    .bottom-cta-card { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .bottom-cta .title { color: #fff; font-size: clamp(2rem, 4vw, 3.4rem); }
+    .bottom-cta p { color: rgba(255,255,255,.65); margin-top: 12px; max-width: 540px; }
+
+    .footer { padding: 34px 0; background: #1d1510; color: rgba(255,255,255,.62); }
+    .footer-grid { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer .brand strong { color: #fff; }
+    .footer .brand span { color: var(--gold-soft); }
+    .footer-links { display: flex; gap: 14px; flex-wrap: wrap; }
+    .footer-links button { background: transparent; border: 0; color: rgba(255,255,255,.62); font-weight: 800; }
+    .footer-links button:hover { color: var(--gold-soft); }
+
+    .wa-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 90;
+      width: 58px;
+      height: 58px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: #25D366;
+      color: #fff;
+      border: 0;
+      box-shadow: 0 18px 38px rgba(37, 211, 102, .35);
+      transition: var(--transition);
+    }
+    .wa-float:hover { transform: translateY(-4px) scale(1.02); }
+    .wa-float i { width: 28px; height: 28px; }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translate(-50%, 120px);
+      background: var(--ink);
+      color: #fff;
+      padding: 13px 18px;
+      border-radius: 999px;
+      z-index: 120;
+      box-shadow: var(--shadow);
+      font-weight: 800;
+      font-size: .88rem;
+      transition: .32s ease;
+      max-width: calc(100% - 36px);
+      text-align: center;
+    }
+    .toast.show { transform: translate(-50%, 0); }
+
+    @media (max-width: 1040px) {
+      .nav-links, .nav-actions { display: none; }
+      .menu-toggle { display: flex; }
+      .hero-grid, .showcase-grid, .detail-grid, .order-layout, .contact-page-grid { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 520px; }
+      .quick-card { grid-template-columns: repeat(2, 1fr); }
+      .quick-card .btn { grid-column: 1 / -1; }
+      .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+      .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+      .detail-info, .summary-card { position: static; }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 28px, 1160px); }
+      .page { padding-top: 76px; }
+      .nav { height: 76px; }
+      .mobile-panel { inset: 76px 14px auto 14px; }
+      .brand-mark { width: 42px; height: 42px; border-radius: 14px; }
+      .brand strong { font-size: 1.18rem; }
+      .brand span { font-size: .62rem; }
+      .section { padding: 54px 0; }
+      .hero { padding: 26px 0 62px; }
+      .hero-grid { gap: 32px; }
+      .hero-actions .btn { width: 100%; }
+      .trust-row { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 410px; }
+      .hero-photo-main { inset: 0 0 74px 0; border-radius: 32px; transform: none; border-width: 7px; }
+      .hero-photo-small { width: 170px; right: 12px; border-radius: 24px; border-width: 6px; }
+      .hero-photo-small img { height: 180px; }
+      .floating-card { left: 10px; bottom: 20px; max-width: calc(100% - 200px); padding: 12px; border-radius: 18px; }
+      .floating-card span { display: none; }
+      .quick-order { margin-top: -30px; }
+      .quick-card, .form-grid { grid-template-columns: 1fr; border-radius: 24px; }
+      .benefit-grid, .catalog-grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-head .btn { margin-top: 18px; width: 100%; }
+      .showcase-card, .showcase-photo, .detail-gallery, .detail-info, .order-card, .summary-card, .contact-card, .contact-visual { border-radius: 26px; }
+      .showcase-card, .showcase-photo { min-height: auto; }
+      .showcase-photo img { min-height: 380px; }
+      .main-detail-image { height: 370px; border-radius: 20px; }
+      .thumbs { grid-template-columns: repeat(4, 1fr); }
+      .thumb { height: 72px; border-radius: 14px; }
+      .product-actions, .detail-actions { grid-template-columns: 1fr; display: grid; }
+      .bottom-cta-card { display: block; }
+      .bottom-cta .btn { width: 100%; margin-top: 22px; }
+      .wa-float { width: 54px; height: 54px; border-radius: 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <nav class="nav" aria-label="Navigation principale">
+        <button class="brand nav-link-home" type="button" data-page="home" aria-label="Accueil Blessed Cake">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v8"/><path d="M4 17h16"/><path d="M12 3v6"/><path d="M9 6h6"/></svg>
+          </span>
+          <span><strong>Blessed Cake</strong><span>Pâtisserie</span></span>
+        </button>
+
+        <ul class="nav-links">
+          <li><button class="nav-link active" type="button" data-page="home">Accueil</button></li>
+          <li><button class="nav-link" type="button" data-page="catalog">Catalogue</button></li>
+          <li><button class="nav-link" type="button" data-page="order">Commander</button></li>
+          <li><button class="nav-link" type="button" data-page="contact">Contact</button></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a class="btn btn-light" href="mailto:blessedcake243@gmail.com"><i data-lucide="mail"></i>Email</a>
+          <button class="btn btn-primary" type="button" data-page="order"><i data-lucide="message-circle"></i>Commander</button>
+        </div>
+
+        <button class="menu-toggle" type="button" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false"><i data-lucide="menu"></i></button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-panel" id="mobilePanel">
+    <button class="nav-link active" type="button" data-page="home">Accueil</button>
+    <button class="nav-link" type="button" data-page="catalog">Catalogue</button>
+    <button class="nav-link" type="button" data-page="order">Commander</button>
+    <button class="nav-link" type="button" data-page="contact">Contact</button>
+    <button class="btn btn-primary" type="button" data-page="order"><i data-lucide="message-circle"></i>Commander via WhatsApp</button>
+  </div>
+
+  <main>
+    <section class="page active" id="page-home" data-page-panel="home">
+      <div class="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow"><i data-lucide="sparkles"></i>Pâtisserie premium à Lubumbashi</div>
+              <h1 class="title">Des gâteaux personnalisés qui rendent vos moments <span>inoubliables</span></h1>
+              <p class="subtitle">Blessed Cake Pâtisserie réalise des gâteaux d'anniversaire, de mariage, des cupcakes et des créations sur mesure. Commande simple, réponse rapide sur WhatsApp et réservation conseillée 2 à 3 jours à l'avance.</p>
+              <div class="hero-actions">
+                <button class="btn btn-primary" type="button" data-page="order"><i data-lucide="shopping-bag"></i>Commander maintenant</button>
+                <button class="btn btn-light" type="button" data-page="catalog"><i data-lucide="images"></i>Voir le catalogue</button>
+              </div>
+              <div class="trust-row">
+                <div class="trust-card"><strong>173+</strong><span>publications Instagram</span></div>
+                <div class="trust-card"><strong>822+</strong><span>personnes suivent la marque</span></div>
+                <div class="trust-card"><strong>2 à 3 jours</strong><span>délai recommandé</span></div>
+              </div>
+            </div>
+            <div class="hero-visual" aria-label="Présentation visuelle de gâteaux">
+              <div class="hero-photo-main"><img src="https://picsum.photos/seed/blessedhero/760/860" alt="Gâteau personnalisé premium Blessed Cake" loading="eager" /></div>
+              <div class="hero-photo-small"><img src="https://picsum.photos/seed/blessedsmallcake/420/520" alt="Détail de décoration de gâteau" loading="eager" /></div>
+              <div class="floating-card">
+                <i data-lucide="clock"></i>
+                <div><strong>Commande planifiée</strong><span>Le formulaire prépare directement le message WhatsApp avec vos choix.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quick-order">
+        <div class="container">
+          <div class="quick-card">
+            <div class="field">
+              <label for="quickType">Type de gâteau</label>
+              <select id="quickType">
+                <option value="Anniversaire enfant">Anniversaire enfant</option>
+                <option value="Anniversaire adulte">Anniversaire adulte</option>
+                <option value="Mariage">Mariage</option>
+                <option value="Cupcakes">Cupcakes</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="quickPeople">Nombre de personnes</label>
+              <input id="quickPeople" type="number" min="4" max="300" value="20" />
+            </div>
+            <div class="field">
+              <label for="quickDate">Date souhaitée</label>
+              <input id="quickDate" type="date" />
+            </div>
+            <button class="btn btn-dark" type="button" id="quickOrderBtn"><i data-lucide="send"></i>Préparer</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="section benefits">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow"><i data-lucide="badge-check"></i>Pourquoi commander ici</div>
+              <h2 class="title">Un parcours pensé pour commander plus vite</h2>
+            </div>
+            <button class="btn btn-ghost" type="button" data-page="order"><i data-lucide="calculator"></i>Estimer ma commande</button>
+          </div>
+          <div class="benefit-grid">
+            <article class="benefit-card"><div class="icon-box"><i data-lucide="wand-sparkles"></i></div><h3>Création sur mesure</h3><p>Choix du thème, couleurs, inscription, parfum et format selon l'occasion.</p></article>
+            <article class="benefit-card"><div class="icon-box"><i data-lucide="message-circle"></i></div><h3>Commande WhatsApp</h3><p>Le site génère un message complet avec tous les détails pour éviter les oublis.</p></article>
+            <article class="benefit-card"><div class="icon-box"><i data-lucide="calendar-check"></i></div><h3>Délai vérifié</h3><p>La date choisie affiche une indication de disponibilité selon le délai recommandé.</p></article>
+            <article class="benefit-card"><div class="icon-box"><i data-lucide="wallet"></i></div><h3>Budget estimatif</h3><p>Une estimation automatique aide le client à se projeter avant de confirmer.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section showcase">
+        <div class="container">
+          <div class="showcase-grid">
+            <div class="showcase-card">
+              <div>
+                <div class="eyebrow"><i data-lucide="chef-hat"></i>Processus simple</div>
+                <h2 class="title">Choisir, personnaliser, envoyer sur WhatsApp</h2>
+                <p>Le site accompagne le client jusqu'à l'action. Il ne se contente pas de montrer des photos, il transforme l'intérêt en demande de commande.</p>
+              </div>
+              <div class="steps">
+                <div class="step"><div class="step-number">1</div><div><strong>Le client choisit un modèle</strong><span>Chaque gâteau du catalogue renvoie vers une fiche détaillée.</span></div></div>
+                <div class="step"><div class="step-number">2</div><div><strong>Il personnalise sa demande</strong><span>Personnes, parfum, date, inscription et message spécial.</span></div></div>
+                <div class="step"><div class="step-number">3</div><div><strong>WhatsApp s'ouvre avec le message prêt</strong><span>La pâtisserie reçoit une demande claire et facile à traiter.</span></div></div>
+              </div>
+            </div>
+            <div class="showcase-photo"><img src="https://picsum.photos/seed/blessedprocesscake/760/880" alt="Gâteau élégant présenté pour une commande" loading="lazy" /></div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="page-catalog" data-page-panel="catalog">
+      <div class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow"><i data-lucide="layout-grid"></i>Catalogue</div>
+              <h1 class="title">Choisissez une inspiration</h1>
+              <p class="subtitle">Tous les modèles peuvent être adaptés selon vos couleurs, votre inscription, votre thème et le nombre de personnes.</p>
+            </div>
+            <button class="btn btn-primary" type="button" data-page="order"><i data-lucide="shopping-bag"></i>Commande personnalisée</button>
+          </div>
+
+          <div class="catalog-toolbar">
+            <div class="filter-group" aria-label="Filtres de catalogue">
+              <button class="chip active" type="button" data-filter="all">Tous</button>
+              <button class="chip" type="button" data-filter="enfant">Enfant</button>
+              <button class="chip" type="button" data-filter="adulte">Adulte</button>
+              <button class="chip" type="button" data-filter="mariage">Mariage</button>
+              <button class="chip" type="button" data-filter="cupcakes">Cupcakes</button>
+              <button class="chip" type="button" data-filter="luxe">Luxe</button>
+            </div>
+            <div class="search-box field">
+              <i data-lucide="search"></i>
+              <input id="catalogSearch" type="search" placeholder="Rechercher un thème" />
+            </div>
+          </div>
+
+          <div class="catalog-grid" id="catalogGrid"></div>
+          <div class="empty-state" id="emptyState">Aucun modèle ne correspond à cette recherche. Essayez un autre mot ou passez une commande personnalisée.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-detail" data-page-panel="detail">
+      <div class="section">
+        <div class="container">
+          <button class="btn btn-ghost" type="button" data-page="catalog"><i data-lucide="arrow-left"></i>Retour au catalogue</button>
+          <div class="detail-grid" style="margin-top:24px">
+            <div class="detail-gallery">
+              <div class="main-detail-image"><img id="detailMainImage" src="https://picsum.photos/seed/detailcake/760/760" alt="Détail du gâteau sélectionné" /></div>
+              <div class="thumbs" id="detailThumbs"></div>
+            </div>
+            <div class="detail-info">
+              <div class="eyebrow" id="detailCategory"><i data-lucide="tag"></i>Catégorie</div>
+              <h1 id="detailTitle">Gâteau personnalisé</h1>
+              <p id="detailDescription">Description du modèle sélectionné.</p>
+              <ul class="detail-list">
+                <li><i data-lucide="paintbrush"></i><span>Design personnalisable selon les couleurs et le thème de votre événement.</span></li>
+                <li><i data-lucide="cake-slice"></i><span>Parfums disponibles selon la commande : vanille, chocolat, fraise, caramel ou mix.</span></li>
+                <li><i data-lucide="calendar-clock"></i><span>Réservation conseillée 2 à 3 jours avant la date souhaitée.</span></li>
+              </ul>
+              <div class="summary-line"><span>Estimation à partir de</span><strong id="detailPrice">35 USD</strong></div>
+              <div class="detail-actions">
+                <button class="btn btn-primary" type="button" id="orderThisCake"><i data-lucide="message-circle"></i>Commander ce modèle</button>
+                <button class="btn btn-light" type="button" data-page="catalog"><i data-lucide="images"></i>Voir d'autres modèles</button>
+              </div>
+              <p class="note">Les images servent d'inspiration. Le prix final dépend du format, du niveau de décoration et des détails demandés.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-order" data-page-panel="order">
+      <div class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow"><i data-lucide="send"></i>Commander</div>
+              <h1 class="title">Préparez votre commande en quelques choix</h1>
+              <p class="subtitle">Le formulaire construit automatiquement un message WhatsApp clair, avec vos détails et une estimation indicative.</p>
+            </div>
+          </div>
+
+          <div class="order-layout">
+            <form class="order-card" id="orderForm">
+              <h2>Détails de la commande</h2>
+              <div class="form-grid">
+                <div class="field full">
+                  <label for="selectedModel">Modèle choisi</label>
+                  <input id="selectedModel" name="selectedModel" type="text" value="Commande personnalisée" />
+                </div>
+                <div class="field">
+                  <label for="cakeType">Type de gâteau</label>
+                  <select id="cakeType" name="cakeType" required>
+                    <option value="Anniversaire enfant">Anniversaire enfant</option>
+                    <option value="Anniversaire adulte">Anniversaire adulte</option>
+                    <option value="Mariage">Mariage</option>
+                    <option value="Cupcakes">Cupcakes</option>
+                    <option value="Création luxe">Création luxe</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="peopleCount">Nombre de personnes</label>
+                  <input id="peopleCount" name="peopleCount" type="number" min="4" max="300" value="20" required />
+                </div>
+                <div class="field">
+                  <label for="flavor">Parfum souhaité</label>
+                  <select id="flavor" name="flavor" required>
+                    <option value="Vanille">Vanille</option>
+                    <option value="Chocolat">Chocolat</option>
+                    <option value="Fraise">Fraise</option>
+                    <option value="Caramel">Caramel</option>
+                    <option value="Mix de parfums">Mix de parfums</option>
+                    <option value="À conseiller">À conseiller</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="eventDate">Date de l'événement</label>
+                  <input id="eventDate" name="eventDate" type="date" required />
+                </div>
+                <div class="field">
+                  <label for="clientName">Votre nom</label>
+                  <input id="clientName" name="clientName" type="text" placeholder="Nom complet" />
+                </div>
+                <div class="field">
+                  <label for="clientPhone">Votre téléphone</label>
+                  <input id="clientPhone" name="clientPhone" type="tel" placeholder="+243..." />
+                </div>
+                <div class="field full">
+                  <label for="customMessage">Message personnalisé sur le gâteau</label>
+                  <input id="customMessage" name="customMessage" type="text" placeholder="Exemple : Joyeux anniversaire Maman" />
+                </div>
+                <div class="field full">
+                  <label for="extraDetails">Détails du design</label>
+                  <textarea id="extraDetails" name="extraDetails" placeholder="Décrivez les couleurs, le thème, la forme, l'âge, le prénom, ou toute précision utile."></textarea>
+                </div>
+              </div>
+              <div class="availability" id="availabilityBox"><i data-lucide="calendar-clock"></i><span>Choisissez une date pour vérifier le délai recommandé.</span></div>
+            </form>
+
+            <aside class="summary-card">
+              <h3>Résumé automatique</h3>
+              <div class="estimate-box">
+                <span>Estimation indicative</span>
+                <strong id="priceEstimate">84 USD</strong>
+              </div>
+              <div class="summary-line"><span>Modèle</span><strong id="summaryModel">Commande personnalisée</strong></div>
+              <div class="summary-line"><span>Type</span><strong id="summaryType">Anniversaire enfant</strong></div>
+              <div class="summary-line"><span>Personnes</span><strong id="summaryPeople">20</strong></div>
+              <div class="summary-line"><span>Parfum</span><strong id="summaryFlavor">Vanille</strong></div>
+              <div class="summary-line"><span>Date</span><strong id="summaryDate">Non choisie</strong></div>
+              <p class="note">Cette estimation aide à cadrer le budget. La pâtisserie confirme le prix final sur WhatsApp selon le design demandé.</p>
+              <button class="btn btn-primary" type="button" id="sendWhatsapp" style="width:100%;margin-top:18px"><i data-lucide="message-circle"></i>Envoyer sur WhatsApp</button>
+              <button class="btn btn-light" type="button" id="copyMessage" style="width:100%;margin-top:10px"><i data-lucide="copy"></i>Copier le message</button>
+              <div class="generated-message" id="generatedMessage"></div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-contact" data-page-panel="contact">
+      <div class="section">
+        <div class="container">
+          <div class="contact-page-grid">
+            <div class="contact-card">
+              <div class="eyebrow"><i data-lucide="map-pin"></i>Contact</div>
+              <h1 class="title">Parlez directement à Blessed Cake</h1>
+              <p class="subtitle">Pour une commande urgente, une question de disponibilité ou un devis, WhatsApp reste le canal le plus rapide.</p>
+              <div class="contact-details">
+                <div class="contact-row"><i data-lucide="message-circle"></i><div><strong>WhatsApp</strong><a href="https://wa.me/243991003260" target="_blank" rel="noopener">+243 991 003 260</a></div></div>
+                <div class="contact-row"><i data-lucide="mail"></i><div><strong>Email</strong><a href="mailto:blessedcake243@gmail.com">blessedcake243@gmail.com</a></div></div>
+                <div class="contact-row"><i data-lucide="instagram"></i><div><strong>Instagram</strong><a href="https://www.instagram.com/blessedcake243" target="_blank" rel="noopener">@blessedcake243</a></div></div>
+                <div class="contact-row"><i data-lucide="map-pin"></i><div><strong>Ville</strong><span>Lubumbashi, République Démocratique du Congo</span></div></div>
+                <div class="contact-row"><i data-lucide="calendar-clock"></i><div><strong>Délai conseillé</strong><span>Réserver 2 à 3 jours avant l'événement.</span></div></div>
+              </div>
+              <div class="hero-actions">
+                <button class="btn btn-primary" type="button" data-page="order"><i data-lucide="shopping-bag"></i>Préparer une commande</button>
+                <a class="btn btn-light" href="https://wa.me/243991003260?text=Bonjour%20Blessed%20Cake%2C%20je%20souhaite%20avoir%20des%20informations%20pour%20une%20commande." target="_blank" rel="noopener"><i data-lucide="send"></i>Écrire sur WhatsApp</a>
+              </div>
+            </div>
+            <div class="contact-visual">
+              <img src="https://picsum.photos/seed/blessedcontactcake/800/900" alt="Présentation de gâteau pour contact Blessed Cake" loading="lazy" />
+              <div class="contact-visual-card">
+                <strong>Conseil pour commander</strong>
+                <span>Préparez votre thème, la date, le nombre de personnes et le texte à écrire sur le gâteau.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="bottom-cta">
+    <div class="container">
+      <div class="bottom-cta-card">
+        <div>
+          <h2 class="title">Un événement approche ?</h2>
+          <p>Ne laissez pas la commande à la dernière minute. Préparez votre demande maintenant et envoyez-la directement sur WhatsApp.</p>
+        </div>
+        <button class="btn btn-primary" type="button" data-page="order"><i data-lucide="calendar-check"></i>Réserver mon gâteau</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <button class="brand" type="button" data-page="home" aria-label="Retour accueil Blessed Cake">
+          <span class="brand-mark" aria-hidden="true"><i data-lucide="cake-slice"></i></span>
+          <span><strong>Blessed Cake</strong><span>Lubumbashi</span></span>
+        </button>
+        <div class="footer-links">
+          <button type="button" data-page="home">Accueil</button>
+          <button type="button" data-page="catalog">Catalogue</button>
+          <button type="button" data-page="order">Commander</button>
+          <button type="button" data-page="contact">Contact</button>
+        </div>
+        <p>Images d'illustration pour maquette. Commande via WhatsApp : +243 991 003 260</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/243991003260?text=Bonjour%20Blessed%20Cake%2C%20je%20souhaite%20commander%20un%20g%C3%A2teau." target="_blank" rel="noopener" aria-label="Contacter Blessed Cake sur WhatsApp"><i data-lucide="message-circle"></i></a>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const WHATSAPP_NUMBER = "243991003260";
+
+    const products = [
+      {
+        id: "lion-kids",
+        title: "Gâteau enfant safari",
+        category: "enfant",
+        type: "Anniversaire enfant",
+        badge: "Enfant",
+        priceFrom: 45,
+        description: "Un modèle coloré et joyeux pour anniversaire d'enfant, idéal pour les thèmes animaux, héros, dessins animés ou univers ludiques.",
+        tags: ["Thème enfant", "Couleurs vives", "Personnalisable"],
+        seeds: ["blessedlionkids", "blessedkidsdetail", "blessedsafaricake", "blessedkidscake"]
+      },
+      {
+        id: "gold-adult",
+        title: "Gâteau adulte doré",
+        category: "adulte luxe",
+        type: "Anniversaire adulte",
+        badge: "Adulte",
+        priceFrom: 55,
+        description: "Une création élégante pour anniversaire adulte, avec finitions dorées, style moderne et inscription personnalisée.",
+        tags: ["Doré", "Élégant", "Anniversaire"],
+        seeds: ["blessedgoldadult", "blessedadultcake", "blessedgoldcake", "blessedluxedetail"]
+      },
+      {
+        id: "wedding-white",
+        title: "Wedding cake floral",
+        category: "mariage luxe",
+        type: "Mariage",
+        badge: "Mariage",
+        priceFrom: 130,
+        description: "Une pièce montée raffinée pour mariage, avec fleurs décoratives, finitions soignées et présence premium pour la réception.",
+        tags: ["Mariage", "Floral", "Premium"],
+        seeds: ["blessedweddingwhite", "blessedweddingdetail", "blessedwhitefloral", "blessedmarriagecake"]
+      },
+      {
+        id: "cupcake-box",
+        title: "Box cupcakes personnalisés",
+        category: "cupcakes",
+        type: "Cupcakes",
+        badge: "Cupcakes",
+        priceFrom: 18,
+        description: "Un assortiment de cupcakes décorés pour événements, goûters, cadeaux ou petits buffets sucrés.",
+        tags: ["Assortiment", "Décorés", "Événement"],
+        seeds: ["blessedcupcakebox", "blessedcupcakes", "blessedcupcakesdetail", "blessedcupcakesparty"]
+      },
+      {
+        id: "mom-red",
+        title: "Gâteau Maman rouge",
+        category: "adulte luxe",
+        type: "Anniversaire adulte",
+        badge: "Adulte",
+        priceFrom: 60,
+        description: "Un gâteau chic pour maman, épouse ou proche, avec décoration rouge, dorée ou pastel selon le message souhaité.",
+        tags: ["Maman", "Chic", "Message"],
+        seeds: ["blessedmomred", "blessedredcake", "blessedmomcake", "blessedrosegold"]
+      },
+      {
+        id: "princess-pink",
+        title: "Gâteau princesse pastel",
+        category: "enfant luxe",
+        type: "Anniversaire enfant",
+        badge: "Enfant",
+        priceFrom: 50,
+        description: "Un gâteau doux et raffiné pour anniversaire fille, avec couleurs pastel, prénom et détails décoratifs au choix.",
+        tags: ["Pastel", "Prénom", "Fille"],
+        seeds: ["blessedprincesspink", "blessedpastelcake", "blessedgirlcake", "blessedpinkdetail"]
+      },
+      {
+        id: "classic-cream",
+        title: "Gâteau classique crème",
+        category: "adulte",
+        type: "Anniversaire adulte",
+        badge: "Classique",
+        priceFrom: 38,
+        description: "Un modèle simple, élégant et gourmand pour une célébration familiale, adaptable au parfum et au message voulu.",
+        tags: ["Simple", "Familial", "Crème"],
+        seeds: ["blessedclassiccream", "blessedcreamcake", "blessedfamilycake", "blessedcreamdetail"]
+      },
+      {
+        id: "luxury-tier",
+        title: "Création luxe à étages",
+        category: "luxe mariage adulte",
+        type: "Création luxe",
+        badge: "Luxe",
+        priceFrom: 160,
+        description: "Une création imposante pour réception, cérémonie ou événement spécial, avec plusieurs niveaux et détails haut de gamme.",
+        tags: ["Étages", "Luxe", "Réception"],
+        seeds: ["blessedluxurytier", "blessedtiercake", "blessedpremiumcake", "blessedluxurywedding"]
+      }
+    ];
+
+    const pageButtons = document.querySelectorAll("[data-page]");
+    const pages = document.querySelectorAll("[data-page-panel]");
+    const mobilePanel = document.getElementById("mobilePanel");
+    const menuToggle = document.getElementById("menuToggle");
+    let currentFilter = "all";
+    let selectedProduct = products[0];
+
+    function initIcons() {
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.setTimeout(() => toast.classList.remove("show"), 2600);
+    }
+
+    function showPage(page) {
+      pages.forEach(panel => panel.classList.toggle("active", panel.dataset.pagePanel === page));
+      document.querySelectorAll(".nav-link").forEach(btn => btn.classList.toggle("active", btn.dataset.page === page));
+      mobilePanel.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      initIcons();
+    }
+
+    pageButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const page = button.dataset.page;
+        if (page) showPage(page);
+      });
+    });
+
+    menuToggle.addEventListener("click", () => {
+      const open = !mobilePanel.classList.contains("open");
+      mobilePanel.classList.toggle("open", open);
+      document.body.classList.toggle("menu-open", open);
+      menuToggle.setAttribute("aria-expanded", String(open));
+    });
+
+    function productImage(seed, w = 680, h = 520) {
+      return `https://picsum.photos/seed/${seed}/${w}/${h}`;
+    }
+
+    function renderCatalog() {
+      const grid = document.getElementById("catalogGrid");
+      const searchValue = document.getElementById("catalogSearch").value.trim().toLowerCase();
+      const filtered = products.filter(product => {
+        const filterOk = currentFilter === "all" || product.category.includes(currentFilter);
+        const searchOk = !searchValue || `${product.title} ${product.description} ${product.tags.join(" ")}`.toLowerCase().includes(searchValue);
+        return filterOk && searchOk;
+      });
+
+      grid.innerHTML = filtered.map(product => `
+        <article class="product-card">
+          <div class="product-image">
+            <img src="${productImage(product.seeds[0], 720, 560)}" alt="${product.title}" loading="lazy" />
+            <span class="product-badge">${product.badge}</span>
+          </div>
+          <div class="product-content">
+            <h3>${product.title}</h3>
+            <p>${product.description}</p>
+            <div class="product-meta">
+              ${product.tags.map(tag => `<span class="meta-pill"><i data-lucide="sparkles"></i>${tag}</span>`).join("")}
+              <span class="meta-pill"><i data-lucide="wallet"></i>À partir de ${product.priceFrom} USD</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-light" type="button" data-view-product="${product.id}"><i data-lucide="eye"></i>Voir</button>
+              <button class="btn btn-primary" type="button" data-order-product="${product.id}"><i data-lucide="message-circle"></i>Commander</button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+
+      document.getElementById("emptyState").style.display = filtered.length ? "none" : "block";
+      document.querySelectorAll("[data-view-product]").forEach(btn => btn.addEventListener("click", () => openProduct(btn.dataset.viewProduct)));
+      document.querySelectorAll("[data-order-product]").forEach(btn => btn.addEventListener("click", () => startOrder(btn.dataset.orderProduct)));
+      initIcons();
+    }
+
+    document.querySelectorAll(".chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+        chip.classList.add("active");
+        currentFilter = chip.dataset.filter;
+        renderCatalog();
+      });
+    });
+
+    document.getElementById("catalogSearch").addEventListener("input", renderCatalog);
+
+    function openProduct(productId) {
+      selectedProduct = products.find(product => product.id === productId) || products[0];
+      document.getElementById("detailCategory").innerHTML = `<i data-lucide="tag"></i>${selectedProduct.badge}`;
+      document.getElementById("detailTitle").textContent = selectedProduct.title;
+      document.getElementById("detailDescription").textContent = selectedProduct.description;
+      document.getElementById("detailPrice").textContent = `${selectedProduct.priceFrom} USD`;
+      const mainImage = document.getElementById("detailMainImage");
+      mainImage.src = productImage(selectedProduct.seeds[0], 820, 820);
+      mainImage.alt = selectedProduct.title;
+
+      const thumbs = document.getElementById("detailThumbs");
+      thumbs.innerHTML = selectedProduct.seeds.map((seed, index) => `
+        <button class="thumb ${index === 0 ? "active" : ""}" type="button" data-seed="${seed}">
+          <img src="${productImage(seed, 260, 220)}" alt="Aperçu ${selectedProduct.title} ${index + 1}" />
+        </button>
+      `).join("");
+      thumbs.querySelectorAll(".thumb").forEach(thumb => {
+        thumb.addEventListener("click", () => {
+          thumbs.querySelectorAll(".thumb").forEach(t => t.classList.remove("active"));
+          thumb.classList.add("active");
+          mainImage.src = productImage(thumb.dataset.seed, 820, 820);
+        });
+      });
+      showPage("detail");
+      initIcons();
+    }
+
+    document.getElementById("orderThisCake").addEventListener("click", () => startOrder(selectedProduct.id));
+
+    function startOrder(productId) {
+      const product = products.find(item => item.id === productId) || selectedProduct;
+      selectedProduct = product;
+      document.getElementById("selectedModel").value = product.title;
+      document.getElementById("cakeType").value = product.type;
+      if (product.type === "Mariage") document.getElementById("peopleCount").value = 80;
+      if (product.type === "Cupcakes") document.getElementById("peopleCount").value = 12;
+      updateOrderSummary();
+      showPage("order");
+    }
+
+    const typeConfig = {
+      "Anniversaire enfant": { base: 32, per: 2.4 },
+      "Anniversaire adulte": { base: 36, per: 2.6 },
+      "Mariage": { base: 95, per: 3.1 },
+      "Cupcakes": { base: 12, per: 1.35 },
+      "Création luxe": { base: 110, per: 3.4 }
+    };
+
+    function calculatePrice() {
+      const type = document.getElementById("cakeType").value;
+      const people = Math.max(4, Number(document.getElementById("peopleCount").value || 0));
+      const config = typeConfig[type] || typeConfig["Anniversaire adulte"];
+      const estimate = Math.round(config.base + (people * config.per));
+      return Math.max(config.base, estimate);
+    }
+
+    function dateAvailabilityMessage(dateValue) {
+      if (!dateValue) return { level: "neutral", text: "Choisissez une date pour vérifier le délai recommandé." };
+      const selected = new Date(`${dateValue}T12:00:00`);
+      const today = new Date();
+      today.setHours(12, 0, 0, 0);
+      const diffDays = Math.ceil((selected - today) / 86400000);
+      if (diffDays < 0) return { level: "bad", text: "La date choisie est déjà passée. Sélectionnez une nouvelle date." };
+      if (diffDays < 2) return { level: "bad", text: "Délai très court. Contactez rapidement sur WhatsApp pour vérifier si une exception est possible." };
+      if (diffDays <= 3) return { level: "warn", text: "Délai possible mais serré. La confirmation dépendra du planning de la pâtisserie." };
+      return { level: "ok", text: "Délai confortable. La réservation a de meilleures chances d'être confirmée." };
+    }
+
+    function formatDate(dateValue) {
+      if (!dateValue) return "Non choisie";
+      return new Date(`${dateValue}T12:00:00`).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" });
+    }
+
+    function buildWhatsappMessage() {
+      const model = document.getElementById("selectedModel").value || "Commande personnalisée";
+      const type = document.getElementById("cakeType").value;
+      const people = document.getElementById("peopleCount").value || "Non précisé";
+      const flavor = document.getElementById("flavor").value;
+      const date = formatDate(document.getElementById("eventDate").value);
+      const name = document.getElementById("clientName").value || "Non précisé";
+      const phone = document.getElementById("clientPhone").value || "Non précisé";
+      const customMessage = document.getElementById("customMessage").value || "Non précisé";
+      const details = document.getElementById("extraDetails").value || "Non précisé";
+      const price = calculatePrice();
+      return `Bonjour Blessed Cake, je souhaite commander un gâteau.
+
+Modèle : ${model}
+Type : ${type}
+Nombre de personnes : ${people}
+Parfum : ${flavor}
+Date souhaitée : ${date}
+Message sur le gâteau : ${customMessage}
+Détails du design : ${details}
+
+Estimation affichée sur le site : ${price} USD
+Nom : ${name}
+Téléphone : ${phone}
+
+Merci de me confirmer la disponibilité et le prix final.`;
+    }
+
+    function updateOrderSummary() {
+      const model = document.getElementById("selectedModel").value || "Commande personnalisée";
+      const type = document.getElementById("cakeType").value;
+      const people = document.getElementById("peopleCount").value || "0";
+      const flavor = document.getElementById("flavor").value;
+      const dateValue = document.getElementById("eventDate").value;
+      const price = calculatePrice();
+      document.getElementById("priceEstimate").textContent = `${price} USD`;
+      document.getElementById("summaryModel").textContent = model;
+      document.getElementById("summaryType").textContent = type;
+      document.getElementById("summaryPeople").textContent = people;
+      document.getElementById("summaryFlavor").textContent = flavor;
+      document.getElementById("summaryDate").textContent = formatDate(dateValue);
+      const availability = dateAvailabilityMessage(dateValue);
+      const availabilityBox = document.getElementById("availabilityBox");
+      availabilityBox.className = `availability ${availability.level === "neutral" ? "" : availability.level}`;
+      availabilityBox.innerHTML = `<i data-lucide="calendar-clock"></i><span>${availability.text}</span>`;
+      document.getElementById("generatedMessage").textContent = buildWhatsappMessage();
+      initIcons();
+    }
+
+    ["selectedModel", "cakeType", "peopleCount", "flavor", "eventDate", "clientName", "clientPhone", "customMessage", "extraDetails"].forEach(id => {
+      document.getElementById(id).addEventListener("input", updateOrderSummary);
+      document.getElementById(id).addEventListener("change", updateOrderSummary);
+    });
+
+    document.getElementById("sendWhatsapp").addEventListener("click", () => {
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWhatsappMessage())}`;
+      window.open(url, "_blank", "noopener");
+    });
+
+    document.getElementById("copyMessage").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(buildWhatsappMessage());
+        showToast("Message copié. Vous pouvez le coller dans WhatsApp.");
+      } catch (error) {
+        showToast("Impossible de copier automatiquement. Sélectionnez le message manuellement.");
+      }
+    });
+
+    document.getElementById("quickOrderBtn").addEventListener("click", () => {
+      document.getElementById("selectedModel").value = "Commande rapide depuis l'accueil";
+      document.getElementById("cakeType").value = document.getElementById("quickType").value;
+      document.getElementById("peopleCount").value = document.getElementById("quickPeople").value;
+      document.getElementById("eventDate").value = document.getElementById("quickDate").value;
+      updateOrderSummary();
+      showPage("order");
+    });
+
+    function setMinDates() {
+      const today = new Date();
+      const iso = today.toISOString().split("T")[0];
+      document.getElementById("eventDate").min = iso;
+      document.getElementById("quickDate").min = iso;
+    }
+
+    setMinDates();
+    renderCatalog();
+    updateOrderSummary();
+    initIcons();
+  </script>
+</body>
+</html>
